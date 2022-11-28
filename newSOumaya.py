@@ -1,6 +1,7 @@
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
+import os
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
@@ -8,11 +9,11 @@ parameters = {
     'limit': '1',
 }
 
-soumaya_token= '69da3e74-f280-4e41-b849-c623a11fd588'
+API_KEY= os.getenv("soumaya_token")
 
 headers = {
     'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': soumaya_token
+    'X-CMC_PRO_API_KEY': API_KEY
 }
 
 session = Session()
